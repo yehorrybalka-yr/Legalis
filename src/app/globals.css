@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* From Legalis logo: deep burgundy + metallic gold */
+  --burgundy: #500a1c;
+  --burgundy-hover: #6b1428;
+  --burgundy-soft: #f7f0f2;
+  --gold: #c9a45c;
+  --gold-bright: #d4af37;
+  --gold-soft: #e8d5a8;
+  --ink: #1c1014;
+  --muted: #4a3f43;
+  --line: #e6dde0;
+  --surface: #ffffff;
+  --surface-alt: #faf7f8;
+  --background: #fffbfb;
+  --foreground: var(--ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-hover: var(--burgundy-hover);
+  --color-burgundy-soft: var(--burgundy-soft);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-soft: var(--gold-soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 100% -10%, rgba(201, 164, 92, 0.14), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 0% 20%, rgba(80, 10, 28, 0.06), transparent 50%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-serif {
+  letter-spacing: 0.005em;
+  line-height: 1.35;
+}
+
+::selection {
+  background: rgba(80, 10, 28, 0.14);
+  color: var(--burgundy);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: none;
+  border-radius: 0.4rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.15s ease,
+    box-shadow 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-primary {
+  background: var(--burgundy);
+  color: #fff;
+  padding: 0.85rem 1.35rem;
+}
+
+.btn-primary:hover {
+  background: var(--burgundy-hover);
+}
+
+.btn-telegram {
+  background: #229ed9;
+  color: #fff;
+  padding: 0.85rem 1.25rem;
+}
+
+.btn-telegram:hover {
+  background: #1b8fc7;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+  padding: 0.85rem 1.25rem;
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe57;
+}
+
+.float-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 9999px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(28, 16, 20, 0.18);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.float-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 20px rgba(28, 16, 20, 0.22);
+}
+
+.float-btn:active {
+  transform: scale(0.96);
+}
+
+.float-telegram {
+  background: #229ed9;
+}
+
+.float-whatsapp {
+  background: #25d366;
+}
+
+.review-mock {
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.review-mock:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.video-mock {
+  transition: border-color 0.18s ease;
+}
+
+.video-mock:hover {
+  border-color: var(--gold);
 }
